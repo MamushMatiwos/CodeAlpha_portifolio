@@ -714,3 +714,183 @@ footer {
         gap: 1rem;
     }
 }
+/* ADD THESE STYLES TO YOUR EXISTING CSS FILE */
+
+/* Hero wrapper for inline profile */
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 3rem;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 650px;
+}
+
+.hero-profile {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-pic-container {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+.profile-pic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.profile-pic-container:hover img {
+    transform: scale(1.05);
+}
+
+/* Floating animation for profile image */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Adjust hero content to use wrapper */
+.hero-content {
+    display: none; /* Hide old hero content */
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+/* Make sure hero text animations still work */
+.hero-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.3s;
+}
+
+.hero-text h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.5s;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.7s;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.9s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+    .profile-pic-container {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 4rem;
+    }
+    
+    .hero-text {
+        order: 2;
+    }
+    
+    .hero-profile {
+        order: 1;
+    }
+    
+    .profile-pic-container {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 5%;
+        padding-top: 4rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .profile-pic-container {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-pic-container {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+/* Keep your existing animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
